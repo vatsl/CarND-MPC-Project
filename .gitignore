@@ -1,0 +1,8 @@
+.vscode
+.idea
+cmake-build-debug
+Ipopt-3.12.7
+build
+tags
+.editorconfig
+.DS_Store
