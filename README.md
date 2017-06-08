@@ -54,7 +54,7 @@ However, there was a lot of erratic driving behavior with these values. Increasi
  of `N` made matters worse. Increasing the value of `dt` led to some improvements.
 Soon I figured that the faster we want to go, the futher we must be able to look and a 
 higher `dt` made the driving smoother.
-With this in mind, I finally set the `N` to 15 and `dt` to 0.2 as that gave me the best
+With this in mind, I finally set the `N` to 10 and `dt` to 0.2 as that gave me the best
 driving behavior at a speed of 30 mph.
 
 ## Model Predictive Control with Latency
@@ -62,6 +62,18 @@ A latency of 100ms is artificially added before sending actuations to the simula
 real world conditions. 
 Failure to handle the latency problem might lead to unrealistic trajectories and erratic driving
  behavior.
+ 
+Use the update equations and model errors in order to factor latency in the state vector. 
+
+```
+    Lf=2.67, latency=0.1 sec
+    x_dl = (0.0 + v * latency);
+    y_dl = 0.0;
+    psi_dl = 0.0 + v * steer_value_input / Lf * latency;
+    v_dl = 0.0 + v + throttle_value_input * latency;
+    cte_dl = cte + (v * sin(epsi) * latency);
+    epsi_dl = epsi + v * steer_value_input / Lf * latency;
+```
 
 ## Dependencies
 
