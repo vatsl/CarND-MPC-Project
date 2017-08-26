@@ -6,6 +6,8 @@ In this project I have tried to improve upon the [PID project](https://github.co
 
 ## Output
 
+Click to view the video
+
 [![Final results with the implementation](http://img.youtube.com/vi/LhtFcLbGKeU/0.jpg)](http://www.youtube.com/watch?v=LhtFcLbGKeU)
 
 
